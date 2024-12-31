@@ -91,7 +91,7 @@ while(row <= 5)
     let cn = 1
     while(cn <= row)
     {
-        ans += cn 
+        ans += cn + " "
         cn++
     }
 
