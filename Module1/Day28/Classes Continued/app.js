@@ -45,7 +45,7 @@ class Person{
         this.isBald = isB
     }
 
-    static introduce()
+    introduce()
     {
         console.log(`Hello my name is ${this.name} and my age is ${this.age}`)
     }
@@ -77,6 +77,22 @@ class Retired extends Person{
         this.MedicalInsurance = MI
         this.pension = Pen
     }
+    introduce() // method overriding
+    {
+        console.log(`Namaste my name is ${this.name} and my age is ${this.age}`)
+    }
+    hehe(str)
+    {
+        console.log(str)
+    }
+
+
+    hehe()
+    {
+        console.log("HEHE")
+    }
+
+
 }
 
 
@@ -84,19 +100,22 @@ let p1 = new Person("123", "Courage", "Male", "6", false)
 let p2 = new BusinessMan("345","qwerty", "Male", "16", true, false, "Grocery Store", 500000)
 let p3 = new SM("34534","asdfg", "Female", 32, true, 43, false, "berozgaar")
 let p4 = new Retired("kjckvjbdsf","Rahul", "Male", 60, true, true, 50000)
-console.log(p1)
-console.log(p2)
-console.log(p3)
-console.log(p4)
+// console.log(p1)
+// console.log(p2)
+// console.log(p3)
+// console.log(p4)
 
 
-console.log(p2.aadharNumber)
+// console.log(p2.aadharNumber)
 
 
 // p1.introduce()
 // p2.introduce()
 // p3.introduce()
 // p4.introduce()
+
+
+p4.hehe("khsgdfihgsdf")
 
 
 // Person.introduce()
