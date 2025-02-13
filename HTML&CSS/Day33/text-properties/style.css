@@ -1,0 +1,15 @@
+#text{
+    font-size: 40px;
+    color: red;
+    line-height: 50px;
+    text-align: left;
+    /* letter-spacing: 30px; */
+    word-spacing: 90px;
+    text-decoration: underline;
+    text-transform: capitalize;
+}
+/* 
+a{
+    text-decoration: none;
+    color: black;
+} */

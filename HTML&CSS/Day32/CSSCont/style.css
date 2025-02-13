@@ -1,0 +1,90 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* p{
+    background-color: yellow;
+}
+
+
+#meraParagraphTag{
+    font-size: 100px;
+}
+
+
+.meriClassOneManArmy{
+    color: green;
+} */
+
+
+/* div{
+    background-color: blue;
+} */
+/* 
+#dabba{
+    background-color: red;
+    height: 300px;
+    width: 300px;
+    border: 10px solid black;
+    margin: 0px 0px 10px 0px ;
+
+}
+
+p{
+    border: 1px solid black;
+    margin-bottom: 20px;
+    padding: 5px;
+} */
+
+
+
+/* #outer p{
+    background-color: red;
+} */
+
+/* 
+#outer > p{
+    background-color: red;
+} */
+
+
+
+/* #dabba + p{
+    background-color: red;
+} */
+
+
+/* #dabba ~ p{
+    background-color: pink;
+} */
+
+/* p:nth-child(2){
+    background-color: red;
+} */
+
+
+
+/* p:first-child{
+    background-color: powderblue;
+}
+
+p:last-child{
+    background-color: red;
+} */
+
+
+#dabba{
+    height: 200px;
+    width: 200px;
+    background-color: red;
+}
+
+
+#dabba:hover{
+    background-color: black;
+    color: white;
+    cursor: zoom-in;
+}
+
+

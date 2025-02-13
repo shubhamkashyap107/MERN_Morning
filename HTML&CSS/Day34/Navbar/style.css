@@ -1,0 +1,21 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+#navbar{
+    display: flex ;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+    height: 70px;
+    padding: 0px 20px 0px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+}
+a{
+    color: white;
+    text-decoration: none;
+}

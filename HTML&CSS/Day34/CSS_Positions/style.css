@@ -1,0 +1,79 @@
+.parent{
+    border: 2px solid black;
+    display: flex;
+    width: fit-content;
+    margin-bottom: 100px;
+}
+
+.children{
+    height: 200px;
+    width: 200px;
+}
+
+#child-static{
+    position: static;
+    top: 100px;
+    left: 100px;
+}
+
+
+#child-relative{
+    position: relative;
+    bottom: 100px;
+    right: 100px;
+}
+
+
+#child-absolute{
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+/* 
+#child-fixed{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+} */
+
+#child-sticky{
+    position: sticky;
+    top: 300px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+
+
+
+/* 
+.a, .b, .c{
+    background-color: aqua;
+}
+
+
+.classC{
+    background-color: pink;
+}
+
+.classB{
+    width: 100px;
+    background-color: orange;
+
+}
+
+.classA{
+    height: 100px;
+    background-color: blue;
+
+} */
+
+
+
+
+
