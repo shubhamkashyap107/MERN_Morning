@@ -1,0 +1,48 @@
+#dabba{
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+    background-color: red;
+    animation-name: dabbaBana;
+    animation-duration: 4s;
+    position: relative;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+} 
+
+ /* @keyframes myAnimation{
+    from{ background-color: red; }
+    to{ background-color: green; }
+} */
+
+@keyframes dabbaBana{
+    0%{top: 0px; left: 0px;}
+    25%{top: 0px; left: 500px;}
+    50%{top: 500px; left: 500px;}
+    75%{top: 500px; left: 0px;}
+    100%{top: 0px; left: 0px;}
+} 
+
+
+#ad{
+    background-color: red;
+    height: 200px;
+    width: 70vw;
+    border-radius: 20px;
+    margin: auto;
+    padding: 20px;
+    animation-name: myAD;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-top: 100px;
+}
+
+
+@keyframes myAD{
+    /* from{background-color: red;}
+    to{background-color: yellow;} */
+    0%{background-color: red;}
+    50%{background-color: yellow; scale: 0.7;}
+    100%{background-color: red;}
+}
