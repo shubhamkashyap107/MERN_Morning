@@ -11,3 +11,8 @@
     height: 86px;
     border-bottom: 1px solid rgb(220, 219, 219);
 }
+
+
+.hide_scroll::-webkit-scrollbar {
+    display: none;
+  }
