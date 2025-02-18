@@ -1,0 +1,13 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+}
+
+
+#navbar{
+    width: 100vw;
+    height: 86px;
+    border-bottom: 1px solid rgb(220, 219, 219);
+}
