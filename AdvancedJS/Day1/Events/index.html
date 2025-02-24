@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="btnClickHandler()" >CLick me</button>
+    <button onmouseleave="mouseLeaveHandler()" onmouseenter="mouseEnterHandler()" onclick="btnClickHandler2()" >Add Age</button>
+    <div id="dabba">Lorem ipsum dolor sit amet.</div>
+
+
+    <script>
+
+        function mouseLeaveHandler()
+        {
+            console.log("Mouse gaya")
+        }
+
+        function mouseEnterHandler()
+        {
+            console.log("Mouse aaya")
+        }
+
+        function btnClickHandler()
+        {
+            console.log("Button daba")
+        }
+
+        function btnClickHandler2()
+        {
+            let age = prompt("Enter your age")
+            if(age < 18)
+            {
+                alert("Access denied")    
+            }
+            else
+            {
+                alert("moj")
+            }
+        }
+    </script>
+    <script src="./app.js"></script>
+
+</body>
+</html>
