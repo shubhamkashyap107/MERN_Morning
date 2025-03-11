@@ -23,7 +23,28 @@ h1{
     align-items: center;
 }
 
+#right{
+    overflow: scroll;
+}
+
 #task-form{
     width: 80%;
    
+}
+
+.cards{
+    border: 1px solid lightgray;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.utilBtn{
+    border: none;
+    outline: none;
 }
