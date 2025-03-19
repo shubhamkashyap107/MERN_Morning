@@ -1,0 +1,24 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    display: flex;
+    background-color: #F8FAFC;
+}
+
+
+#music-player-container, #playlist-container{
+    /* border: 1px solid black; */
+    min-height: 100vh;
+}
+
+#music-player-container{
+    display: flex;
+    align-items: center;
+}
+#music-player{
+    padding: 10px;
+    background-color: #D9EAFD;
+}

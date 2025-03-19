@@ -4,6 +4,10 @@ const button = document.getElementById("btn")
 const taskContainer = document.getElementById("right")
 const errorMsg = document.getElementsByClassName("errormsg")
 
+// navigator.geolocation.getCurrentPosition((pos) => {
+//     console.log(pos)
+// })
+
 button.addEventListener("click", () => {
 
     let inputVal = inputTag.value 
@@ -38,6 +42,23 @@ button.addEventListener("click", () => {
 
     delBtn.innerText = "❌"
     compBtn.innerText = "✅"
+
+    delBtn.addEventListener("click", () => {
+        card.remove()
+    })
+
+    compBtn.addEventListener("click", () => {
+        if(taskTitle.style.textDecoration == "line-through")
+        {
+            taskTitle.style.textDecoration = "none"
+            taskDesc.style.textDecoration = "none"
+        }
+        else
+        {
+            taskTitle.style.textDecoration = "line-through"
+            taskDesc.style.textDecoration = "line-through"
+        }
+    })
 
     delBtn.classList.add("utilBtn")
     compBtn.classList.add("utilBtn")
