@@ -14,14 +14,20 @@
         <div id="music-player" class="card mx-auto" style="width: 400px;">
             <img id="imagetag" src="https://plus.unsplash.com/premium_photo-1669083824014-0439da57c0a1?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHBsYWNlaG9sZGVyJTIwbXVzaWN8ZW58MHx8MHx8fDA%3D" alt="">
             <h2 id="nametag" style="text-align: center;"></h2>
-            <input type="range" class="form-range mx-auto" value="0" id="customRange1" style="width: 85%;" min="0" max="100" step="1">
+   
+                <div style="display: flex; justify-content: space-between; width: 85%; margin: auto;">
+                    <span id="curr-time"></span>
+                    <span id="total-time"></span>
+                </div>
+                <input type="range" class="form-range mx-auto" value="0" id="slider" style="width: 85%;" min="0" max="100" step="1">
+        
             <div class="d-flex mt-3" style="justify-content: space-evenly;">
                 <i id="backbtn" class="fa-solid fa-backward " style="color: #000000; font-size: 50px;"></i>
                 <i id="playbtn" class="fa-solid fa-circle-play" style="color: black; font-size: 50px;"></i>
                 <i id="nextbtn" class="fa-solid fa-forward " style="color: #000000; font-size: 50px;"></i>
             </div>
         </div>
-        <input min="0" max="100" step="1" style="width: 400px; margin-top: 20px;" type="range" class="form-range" id="customRange1">
+        <input min="0" value="50" max="100" step="1" style="width: 400px; margin-top: 20px;" type="range" class="form-range" id="volumeslider">
 
     </div>
     <div style="width: 20%;" id="playlist-container"></div>

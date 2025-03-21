@@ -3,6 +3,10 @@ let playBtn = document.getElementById("playbtn")
 let nextBtn = document.getElementById("nextbtn")
 let imageTag = document.getElementById("imagetag")
 let nameTag = document.getElementById("nametag")
+let slider = document.getElementById("slider")
+let volumeSlider = document.getElementById("volumeslider")
+let currentTime = document.getElementById("curr-time")
+let totalTime = document.getElementById("total-time")
 
 const info = [
     {
@@ -30,7 +34,7 @@ const info = [
 let currentIndex = 0
 let currentMusic = new Audio()
 currentMusic.src = `./media/${info[currentIndex].trackName}.mp3`
-
+currentMusic.volume =  0.5
 
 
 
@@ -58,9 +62,15 @@ nextBtn.addEventListener("click", () => {
     {
         currentIndex = 0
     }
+    if(playBtn.classList.contains("fa-circle-play"))
+    {
+        playBtn.classList.remove("fa-circle-play")
+        playBtn.classList.add("fa-circle-pause")
+    }
     currentMusic.src = `./media/${info[currentIndex].trackName}.mp3`
     imageTag.src = info[currentIndex].image
     nameTag.innerText = info[currentIndex].displayName
+
     currentMusic.play()
 })
 
@@ -70,8 +80,45 @@ prevBtn.addEventListener("click", () => {
     {
         currentIndex = info.length - 1
     }
+    if(playBtn.classList.contains("fa-circle-play"))
+    {
+        playBtn.classList.remove("fa-circle-play")
+        playBtn.classList.add("fa-circle-pause")
+    }
     currentMusic.src = `./media/${info[currentIndex].trackName}.mp3`
     imageTag.src = info[currentIndex].image
     nameTag.innerText = info[currentIndex].displayName
+
     currentMusic.play()
+})
+
+let isSliding = false
+
+currentMusic.addEventListener("timeupdate", () => {
+    if(!isSliding == true)
+    {
+        if(currentMusic.currentTime == currentMusic.duration)
+        {
+            nextBtn.click()
+        }
+        if(currentMusic.duration){
+            totalTime.innerText =`${Math.floor(currentMusic.duration / 60)} : ${Math.floor(currentMusic.duration % 60)}`
+            currentTime.innerText = `${Math.floor(currentMusic.currentTime / 60)} : ${Math.floor(currentMusic.currentTime % 60)}`
+        }
+        slider.value = (currentMusic.currentTime / currentMusic.duration) * 100
+    }
+})
+
+
+slider.addEventListener("input", () => {
+    isSliding = true
+})
+
+slider.addEventListener("change", () => {
+    currentMusic.currentTime = (slider.value * currentMusic.duration) / 100
+    isSliding = false
+})
+
+volumeSlider.addEventListener("change", () => {
+    currentMusic.volume = volumeSlider.value / 100
 })
