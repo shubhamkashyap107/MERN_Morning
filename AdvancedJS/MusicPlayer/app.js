@@ -102,8 +102,8 @@ currentMusic.addEventListener("timeupdate", () => {
             nextBtn.click()
         }
         if(currentMusic.duration){
-            totalTime.innerText =`${Math.floor(currentMusic.duration / 60)} : ${Math.floor(currentMusic.duration % 60)}`
-            currentTime.innerText = `${Math.floor(currentMusic.currentTime / 60)} : ${Math.floor(currentMusic.currentTime % 60)}`
+            totalTime.innerText =`${Math.floor(currentMusic.duration / 60)}:${Math.floor(currentMusic.duration % 60)}`
+            currentTime.innerText = `${Math.floor(currentMusic.currentTime / 60)}:${Math.floor(currentMusic.currentTime % 60)}`
         }
         slider.value = (currentMusic.currentTime / currentMusic.duration) * 100
     }
