@@ -22,3 +22,8 @@ body{
     padding: 10px;
     background-color: #D9EAFD;
 }
+
+.songCard:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}

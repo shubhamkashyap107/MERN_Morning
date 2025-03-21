@@ -7,6 +7,7 @@ let slider = document.getElementById("slider")
 let volumeSlider = document.getElementById("volumeslider")
 let currentTime = document.getElementById("curr-time")
 let totalTime = document.getElementById("total-time")
+let playlistContainer = document.getElementById("playlist-container")
 
 const info = [
     {
@@ -29,6 +30,8 @@ const info = [
         trackName : "track4",
         image : "https://images.unsplash.com/photo-1518644730709-0835105d9daa?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHV6emxlZHxlbnwwfHwwfHx8MA%3D%3D"
     },
+   
+    
 ]
 
 let currentIndex = 0
@@ -122,3 +125,35 @@ slider.addEventListener("change", () => {
 volumeSlider.addEventListener("change", () => {
     currentMusic.volume = volumeSlider.value / 100
 })
+
+window.addEventListener("load", () => {
+    for(let item of info)
+    {
+        let dabba = document.createElement("div")
+        dabba.classList.add("songCard")
+        dabba.innerText = item.displayName
+        dabba.style.border = "1px dotted gray"
+        dabba.style.marginTop = "18px"
+        dabba.style.padding = "5px"
+
+       
+
+        playlistContainer.appendChild(dabba)
+    }
+})
+
+playlistContainer.addEventListener("click", (e) => {
+    if(e.target.tagName == "DIV")
+    {
+        let obj = info.find((item) => {
+            return item.displayName == e.target.innerText
+        })
+        currentMusic.src = `./media/${obj.trackName}.mp3`
+        imageTag.src = obj.image
+        nameTag.innerText = obj.displayName
+        playBtn.classList.remove("fa-circle-play")
+        playBtn.classList.add("fa-circle-pause")
+        currentMusic.play()
+    }
+})
+
