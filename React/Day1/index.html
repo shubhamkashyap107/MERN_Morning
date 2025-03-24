@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .nav{
+            display: flex;
+            justify-content: space-between;
+            padding: 0px 20px 0px 20px;
+            align-items: center;
+            /* height: 100px; */
+        }
+
+        .nav > div > a{
+            color : white;
+            margin-right: 15px;
+            text-decoration: none;
+            font-size: 10px;
+        }
+
+        img{
+            height: 40px;
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <div id="root">Hello ji</div>
+
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        const root = ReactDOM.createRoot(document.getElementById("root"))
+
+        // const ele = React.createElement("p", {id : "Hello"}, "Hello world") // tagName, object / null -> attributes / innerHTML
+        // const ele2 = React.createElement("p", {id : "Hello"}, "Hello world 2") // tagName, object / null -> attributes / innerHTML
+
+        // root.render(ele)
+        // root.render([ele, ele2])
+
+        // let outer = React.createElement("div", {}, "")
+        // let inner = React.createElement("div", {}, "ABC")
+
+
+        // let outer = React.createElement("div", {}, React.createElement("div", null, "ABC"))
+        // let list = React.createElement("ul", {}, [React.createElement("li", null, "A"),
+        //  React.createElement("li", null, "B"), React.createElement("li", null, "C")])
+
+        // root.render(list)
+
+        // function Test() // jsx
+        // {
+        //     return (
+        //         <div>Okay</div>
+        //     )
+        // }
+
+        // root.render(Test())
+
+
+
+        function Navbar() // react fragment <></>
+        {
+            // let headingStyleObject = {color : "white"}
+            return(
+                <div className="nav" style={{backgroundColor : "black"}}>
+                    <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bG9nb3xlbnwwfHwwfHx8MA%3D%3D" alt="" />
+                    <div>
+                        <a href="https://www.google.com">Google</a>
+                        <a href="https://www.youtube.com">Youtube</a>
+                        <a href="https://www.wikipedia.com">Wikipedia</a>
+                    </div>
+                </div>
+            )
+        }
+
+        // root.render(Navbar())
+        root.render(<Navbar />)
+        // root.render(<Navbar></Navbar>)
+
+
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
