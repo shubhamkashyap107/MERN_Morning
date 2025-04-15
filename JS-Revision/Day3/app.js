@@ -157,36 +157,96 @@
 // all three of the functions return the greatest of the three numbers
 
 
-the function will firstly check whether the triangle is valid or not, then we'll determine
-whether the traingle is equilateral or scalene or isosceles and on that basis we'll return
-a string as per the question
+// the function will firstly check whether the triangle is valid or not, then we'll determine
+// whether the traingle is equilateral or scalene or isosceles and on that basis we'll return
+// a string as per the question
 
-function triangleType(angle1, angle2, angle3)
-{
-    if(Number(angle1) + Number(angle2) + Number(angle3) != 180)
-    {
-        return "Invalid"
-    }
-    else
-    {
-        if(angle1 == angle2 && angle1 == angle3)
-        {
-            return "Valid: Equilateral"
-        }
-        else if(angle1 != angle2 && angle2 != angle3 && angle3 != angle1)
-        {
-            return "Valid: Scalene"
-        }
-        else
-        {
-            return "Valid: Isosceles"
-        }
-    }
-}
+// function triangleType(angle1, angle2, angle3)
+// {
+//     if(Number(angle1) + Number(angle2) + Number(angle3) != 180)
+//     {
+//         return "Invalid"
+//     }
+//     else
+//     {
+//         if(angle1 == angle2 && angle1 == angle3)
+//         {
+//             return "Valid: Equilateral"
+//         }
+//         else if(angle1 != angle2 && angle2 != angle3 && angle3 != angle1)
+//         {
+//             return "Valid: Scalene"
+//         }
+//         else
+//         {
+//             return "Valid: Isosceles"
+//         }
+//     }
+// }
 
 
-console.log(triangleType(10,10,10))
-the function will either return "Invalid" or will return What kind of triangle it is.
+// console.log(triangleType(10,10,10))
+// the function will either return "Invalid" or will return What kind of triangle it is.
+
+
+
+
+
+// let n = 30
+
+
+// var fizzBuzz = function(n) {
+
+//     let ans = []
+//     for(let i = 1; i <= n; i++)
+//     {
+//         if(i % 3 == 0 && i % 5 == 0)
+//         {
+//             ans.push("FizzBuzz")
+//         }
+//         else if(i % 3 == 0)
+//         {
+//             ans.push("Fizz")
+//         }
+//         else if(i % 5 == 0)
+//         {
+//             ans.push("Buzz")
+//         }
+//         else
+//         {
+//             ans.push(String(i))
+//         }
+//     }
+//     return ans
+// };
+
+
+// let ans = fizzBuzz(n)
+// console.log(ans)
+
+
+// we are going to make a function which will add up the parameters and mod it with 7 in order to obtain number in desired range
+// then we'll return a string from the array as per the modded value, we are not checking for negative and irrelavant values as the
+// problem statement suggests that well get only valid input
+
+
+// function findTheDay(current_day, days_later)
+// {
+//     if(days_later == 0)
+//     {
+//         return current_day
+//     }
+//     const days = ["Sunday", "Monday", "Tuesday", "Wednesday","Thursday", "Friday", "Saturday"]
+//     let day = (current_day + days_later) % 7
+//     return days[day]
+// }
+
+// console.log(findTheDay(3, 1000))
+
+
+
+
+
 
 
 
