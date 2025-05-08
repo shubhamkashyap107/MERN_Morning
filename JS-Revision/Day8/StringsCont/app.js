@@ -155,4 +155,12 @@ function rotateStringII(str, val)
 }
 
 
-console.log(rotateStringII("abcdef", 60000000001))
+// console.log(rotateStringII("abcdef", 60000000001))
+
+
+
+let str = "My num is"
+let a = 10
+
+
+console.log(str.concat(" ").concat(a))
