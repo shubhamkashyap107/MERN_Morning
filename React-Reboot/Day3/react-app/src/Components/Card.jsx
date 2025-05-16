@@ -18,8 +18,9 @@
 
 // const Card = (props) => {
 
-//     const{name, img, designation} = props
-//   return (
+//   const{name, img, designation} = props
+//   
+// return (
 //     <div>
 //         <img src={img} alt="" />
 

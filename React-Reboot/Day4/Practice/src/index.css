@@ -1,0 +1,23 @@
+#counter-body{
+    border: 1px solid black;
+    width: 20vw;
+    /* height: 200px; */
+    margin: auto;
+    margin-top: 300px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: aliceblue;
+}
+
+
+#counter-display{
+    text-align: right;
+    padding: 10px;
+    font-size: 32px;
+}
+
+#counter-btns{
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-evenly;
+}
