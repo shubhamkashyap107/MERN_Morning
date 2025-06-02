@@ -8,7 +8,7 @@ const TodoList = () => {
     const[todos, setTodos] = useState([])
     const[itemToBeEdited, setItemToBeEdited] = useState({})
 
-  console.log(itemToBeEdited)
+  // console.log(itemToBeEdited)
   return (
     <div className='flex'>
         <Form setItemToBeEdited={setItemToBeEdited} itemToBeEdited={itemToBeEdited} todos={todos} setTodos={setTodos} />
