@@ -28,7 +28,7 @@ const Products = () => {
         })
         // console.log(filteredArray)
         setProducts(filteredArray)
-    }} type="text" className='border h-[40px] w-[20vw] rounded m-4' /> 
+    }} type="text" className='border border-gray-400 h-[40px] w-[20vw] rounded m-4' /> 
 
     <div className='grid grid-cols-4 gap-2'>
         {products.length > 0 && products.map((item) => {
