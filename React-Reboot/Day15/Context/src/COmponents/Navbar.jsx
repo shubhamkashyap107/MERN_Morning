@@ -20,6 +20,7 @@ const Navbar = () => {
         }} to={"/about"}>About</NavLink>
 
         <NavLink className={({isActive}) => isActive ? "text-yellow-500" : ""} to={"/profile"}>Profile</NavLink>
+        <NavLink className={({isActive}) => isActive ? "text-yellow-500" : ""} to={"/counter"}>Counter</NavLink>
       </div>
     </div>
   )

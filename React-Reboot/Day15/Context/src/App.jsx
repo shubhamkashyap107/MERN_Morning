@@ -4,6 +4,7 @@ import Home from './COmponents/Home'
 import Profile from './COmponents/Profile'
 import Navbar from './COmponents/Navbar'
 import { useNavigate } from "react-router-dom"
+import Counter from "./COmponents/Counter"
 
 const App = () => {
   const navigate = useNavigate()
@@ -14,6 +15,7 @@ const App = () => {
         <Route path='/about' element={<About />} />
         <Route path='/home' element={<Home />} />
         <Route path='/profile' element={<Profile />} />
+        <Route path='/counter' element={<Counter />} />
       </Routes>
 {/* 
 
