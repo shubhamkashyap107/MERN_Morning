@@ -7,13 +7,21 @@ const A = () => {
     const[pass, setPass] = useState("")
     const dispatch = useDispatch()
 
+
+    function setter(setterFn,val)
+    {
+        setterFn(val)
+    }
+
   return (
     <div>
         <input onChange={(e) => {
-            setName(e.target.value)
+            // setName(e.target.value)
+            setter(setName, e.target.value)
         }} type="text" />
         <input onChange={(e) => {
-            setPass(e.target.value)
+            // setPass(e.target.value)
+            setter(setPass, e.target.value)
         }} type="text" />
         <button onClick={() => {
             if(!name || !pass) return
