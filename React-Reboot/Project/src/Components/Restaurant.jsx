@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import {useGlobalContext} from "../Utils/GlobalContext"
-import greenImg from "../assets/cardGreenIcon.svg"
+import Card from './Card'
 
 const Restaurant = () => {
     const[sliderData, setSLiderData] = useState([])
@@ -102,21 +102,7 @@ const Restaurant = () => {
                 <div id='slider2' className='flex gap-3 overflow-scroll hide-scrollbar mt-5'>
                     {topRes.map((item) => {
                         return (
-                            <div key={item.info.id}>
-                                <div className='w-[250px] relative'>
-                                    <img src={cdn + item.info.cloudinaryImageId} alt="" className='h-[150px] w-[100%] rounded-2xl' />
-                                    {item.info.aggregatedDiscountInfoV3 && <p className='absolute bottom-1 left-2 text-white font-bold'>{item.info.aggregatedDiscountInfoV3.header + item.info.aggregatedDiscountInfoV3.subHeader}</p>}
-                                </div>
-
-                                <div>
-
-                                    <h2 className='font-bold'>{item.info.name.length > 25 ? item.info.name.slice(0,25) + "..." : item.info.name}</h2>
-                                    <p className='flex text-sm'><img src={greenImg} alt="" /> &nbsp; {item.info.avgRating} • {item.info.sla.slaString} </p>
-                                    <p className='text-sm text-gray-400'>{item.info.cuisines.join(", ").length > 30 ? item.info.cuisines.join(", ").slice(0,30) + "...": item.info.cuisines.join(", ")}</p>
-                                    <p className='text-sm text-gray-400'>{item.info.areaName}</p>
-                                </div>
-
-                        </div>
+                            <Card size={"sm"} cuisines={item.info.cuisines} slaString={item.info.sla.slaString} avgRating={item.info.avgRating} name={item.info.name} subHeader={item.info.aggregatedDiscountInfoV3.subHeader} header={item.info.aggregatedDiscountInfoV3.header} key={item.info.id} areaName={item.info.areaName} imageId={item.info.cloudinaryImageId} />
                         )
                     })}
                 </div>
