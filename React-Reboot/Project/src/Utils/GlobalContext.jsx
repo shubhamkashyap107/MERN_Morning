@@ -2,7 +2,6 @@ import { createContext, useContext, useState } from "react";
 
 const globalContext = createContext()
 
-
 export const GlobalContext = ({children}) => {
     const[lat, setLat] = useState()
     const[long, setLong] = useState()

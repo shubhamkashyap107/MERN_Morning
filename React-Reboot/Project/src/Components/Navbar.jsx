@@ -4,17 +4,23 @@ import { useEffect, useState } from "react"
 import { useGlobalContext } from "../Utils/GlobalContext"
 
 const Navbar = () => {
+
   const nav = useNavigate()
   const[place, setPlace] = useState("My Address")
   const{lat,long} = useGlobalContext()
 
-
   useEffect(() => {
     async function  getLocation() {
-      const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${long}`)
-      const data = await res.json()
-      // console.log(data)
-      setPlace(data.display_name)
+      if(!lat || !long)return
+      try {
+          const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${long}`)
+          const data = await res.json()
+          // console.log(data)
+          setPlace(data.display_name)
+      } catch (error) {
+        console.log(error)
+      }
+
     }
     getLocation()
   }, [lat, long])
