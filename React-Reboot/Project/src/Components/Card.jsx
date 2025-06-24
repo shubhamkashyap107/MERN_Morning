@@ -9,7 +9,7 @@ const Card = ({key, header, subHeader, imageId, name, avgRating, slaString, cuis
   return (
         <div key={key}>
             <div className={`relative ` + (size == "sm" ? "w-[250px]" : "w-[300px]")}>
-                <img src={cdn + imageId} alt="" className='h-[150px] w-[100%] rounded-2xl' />
+                <img src={cdn + imageId} alt="" className={'w-[100%] rounded-2xl ' + (size == "sm" ? "h-[150px]" : "h-[200px]")} />
                 {header && <p className='absolute bottom-1 left-2 text-white font-bold'>{header + subHeader}</p>}
             </div>
 
