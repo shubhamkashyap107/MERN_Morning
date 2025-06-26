@@ -34,7 +34,7 @@ const SliderItemData = () => {
         {!itemsData.length > 0 ? <Skeleton /> : (
             <div className='grid grid-cols-4 w-[80vw] mx-auto gap-5 mt-5'>
                 {itemsData.map((item) => {
-                    return <Card cuisines={item.card.card.info.cuisines} slaString={item.card.card.info.sla.slaString} avgRating={item.card.card.info.avgRating} name={item.card.card.info.name} subHeader={item.card.card.info?.aggregatedDiscountInfoV3?.subHeader || ""} header={item.card.card.info?.aggregatedDiscountInfoV3?.header || ""} key={item.card.card.info.id} areaName={item.card.card.info.areaName} imageId={item.card.card.info.cloudinaryImageId} />
+                    return <Card resId={item.card.card.info.id} cuisines={item.card.card.info.cuisines} slaString={item.card.card.info.sla.slaString} avgRating={item.card.card.info.avgRating} name={item.card.card.info.name} subHeader={item.card.card.info?.aggregatedDiscountInfoV3?.subHeader || ""} header={item.card.card.info?.aggregatedDiscountInfoV3?.header || ""} key={item.card.card.info.id} areaName={item.card.card.info.areaName} imageId={item.card.card.info.cloudinaryImageId} />
                 })}
             </div>
         )}

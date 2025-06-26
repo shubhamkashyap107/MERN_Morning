@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useGlobalContext } from '../Utils/GlobalContext'
 import { useParams } from 'react-router-dom'
 import Navbar from './Navbar'
+import Accordion from './Accordion'
 
 const Menu = () => {
     const{lat, long, cdn} = useGlobalContext()
@@ -12,7 +13,7 @@ const Menu = () => {
 
     // console.log(menuData)
     // console.log(resData)
-    console.log(carData)
+    // console.log(carData)
 
     function scrollFn(dir)
     {
@@ -63,7 +64,7 @@ const Menu = () => {
 
         {   carData.length > 0 &&
         
-        <div className='mt-10'>
+        <div className='mt-10 mb-10'>
             <div className='flex justify-between items-center'>
 
                 <p className='text-lg font-bold'>Top Picks</p>
@@ -83,6 +84,26 @@ const Menu = () => {
         </div>    
         
         }
+
+
+        {
+            menuData.map((item) => {
+                // console.log(item)
+                if(item.card.card.itemCards)
+                {
+                    return <Accordion title={item.card.card.title} data={item.card.card.itemCards} />
+                }
+                else
+                {
+                    return <p>Nested UI</p>
+                }
+            })
+        }
+
+
+
+
+
         
         </div>}
 

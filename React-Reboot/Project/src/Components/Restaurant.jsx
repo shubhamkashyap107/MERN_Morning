@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import {useGlobalContext} from "../Utils/GlobalContext"
 import Card from './Card'
 import { useNavigate } from 'react-router-dom'
+import Skeleton from './Skeleton'
 
 const Restaurant = () => {
     const nav = useNavigate()
@@ -63,11 +64,22 @@ const Restaurant = () => {
         getData()
     }, [lat, long])
 
+
+    if(!sliderData)
+    {
+        return (
+            <>
+                <Navbar />
+                <Skeleton />
+            </>
+    )
+    }
+
   return (
     <div className=' min-h-screen'>
         <Navbar />
 
-       {sliderData &&  
+       {sliderData.length > 0 &&  
        <div className=' w-[80vw] mx-auto mt-10 bg-white'>
             <div className='flex justify-between'>
                 <p className='font-bold'>What's on your mind?</p>
@@ -95,7 +107,7 @@ const Restaurant = () => {
 
 
         {
-            topRes && 
+            topRes.length > 0 && 
             <div className='w-[80vw] mx-auto mt-10 bg-white'>
                 <div className='flex justify-between'>
                     <p className='font-bold'>{resTitle}</p>
@@ -110,8 +122,9 @@ const Restaurant = () => {
 
                 <div id='slider2' className='flex gap-3 overflow-scroll hide-scrollbar mt-5'>
                     {topRes.map((item) => {
+                        // console.log(item)
                         return (
-                            <Card size={"sm"} cuisines={item.info.cuisines} slaString={item.info.sla.slaString} avgRating={item.info.avgRating} name={item.info.name} subHeader={item.info?.aggregatedDiscountInfoV3?.subHeader || ""} header={item.info?.aggregatedDiscountInfoV3?.header || ""} key={item.info.id} areaName={item.info.areaName} imageId={item.info.cloudinaryImageId} />
+                            <Card resId={item.info.id} size={"sm"} cuisines={item.info.cuisines} slaString={item.info.sla.slaString} avgRating={item.info.avgRating} name={item.info.name} subHeader={item.info?.aggregatedDiscountInfoV3?.subHeader || ""} header={item.info?.aggregatedDiscountInfoV3?.header || ""} key={item.info.id} areaName={item.info.areaName} imageId={item.info.cloudinaryImageId} />
                         )
                     })}
                 </div>
@@ -120,7 +133,7 @@ const Restaurant = () => {
 
 
         {
-            nearbyRes && (
+            nearbyRes.length > 0 && (
                 <div className='mx-auto w-[80vw] mt-10'>
                     <p className='font-bold'>Restaurants with online food delivery in Noida 1</p>
 
