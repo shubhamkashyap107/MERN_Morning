@@ -50,7 +50,7 @@ const Restaurant = () => {
                 // console.log(lat, long)
                 const res = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${long}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`)
                 let apiData = await res.json()
-                console.log(apiData)
+                // console.log(apiData)
                 setSLiderData(apiData.data?.cards[0]?.card?.card?.imageGridCards?.info)
                 setTopRes(apiData.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
                 setResTitle(apiData.data?.cards[1]?.card?.card?.header?.title)
@@ -128,7 +128,8 @@ const Restaurant = () => {
 
                     <div className='grid grid-cols-4 mt-5'>
                         {nearbyRes.map((item) => {
-                            return <Card cuisines={item.info.cuisines} slaString={item.info.sla.slaString} avgRating={item.info.avgRating} name={item.info.name} subHeader={item.info?.aggregatedDiscountInfoV3?.subHeader || ""} header={item.info?.aggregatedDiscountInfoV3?.header || ""} key={item.info.id} areaName={item.info.areaName} imageId={item.info.cloudinaryImageId} />
+                            // console.log(item)
+                            return <Card resId={item.info.id} cuisines={item.info.cuisines} slaString={item.info.sla.slaString} avgRating={item.info.avgRating} name={item.info.name} subHeader={item.info?.aggregatedDiscountInfoV3?.subHeader || ""} header={item.info?.aggregatedDiscountInfoV3?.header || ""} key={item.info.id} areaName={item.info.areaName} imageId={item.info.cloudinaryImageId} />
                         })}
                     </div>
                 </div>

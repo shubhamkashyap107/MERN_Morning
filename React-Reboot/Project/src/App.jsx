@@ -5,6 +5,7 @@ import Restaurant from "./Components/Restaurant"
 import { useEffect, useState } from "react"
 import { useGlobalContext } from "./Utils/GlobalContext"
 import SliderItemData from "./Components/SliderItemData"
+import Menu from "./Components/Menu"
 
 const App = () => {
 
@@ -26,6 +27,7 @@ const App = () => {
         <Route element={<Landing />} path="/" />
         <Route element={<Landing />} path="/home" />
         <Route element={<Restaurant />} path="/restaurants" />
+        <Route element={<Menu />} path="/menu/:resId" />
         <Route element={<SliderItemData />} path="/slider-data/:itemId/:text" />
         <Route path="*" element={<Error />} />
       </Routes>

@@ -1,13 +1,17 @@
+import { useNavigate } from "react-router-dom"
 import greenImg from "../assets/cardGreenIcon.svg"
 import {useGlobalContext} from "../Utils/GlobalContext"
 
 
 
 
-const Card = ({key, header, subHeader, imageId, name, avgRating, slaString, cuisines, areaName, size}) => {
+const Card = ({resId, key, header, subHeader, imageId, name, avgRating, slaString, cuisines, areaName, size}) => {
      const{cdn} = useGlobalContext()
+     const navigate = useNavigate()
   return (
-        <div key={key}>
+        <div onClick={() => {
+            navigate("/menu/" + resId)
+        }} className="hover:cursor-pointer hover:shadow-2xl" key={key}>
             <div className={`relative ` + (size == "sm" ? "w-[250px]" : "w-[300px]")}>
                 <img src={cdn + imageId} alt="" className={'w-[100%] rounded-2xl ' + (size == "sm" ? "h-[150px]" : "h-[200px]")} />
                 {header && <p className='absolute bottom-1 left-2 text-white font-bold'>{header + subHeader}</p>}
