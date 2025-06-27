@@ -3,6 +3,7 @@ import { useGlobalContext } from '../Utils/GlobalContext'
 import { useParams } from 'react-router-dom'
 import Navbar from './Navbar'
 import Accordion from './Accordion'
+import NestedUI from './NestedUI'
 
 const Menu = () => {
     const{lat, long, cdn} = useGlobalContext()
@@ -60,7 +61,7 @@ const Menu = () => {
 
         <span className='mt-10'>Menu</span>
 
-        <hr className='border w-[100%] border-gray-200 mt-10' />
+        <hr className='border w-[100%] border-gray-200 mt-5 mb-5' />
 
         {   carData.length > 0 &&
         
@@ -91,11 +92,22 @@ const Menu = () => {
                 // console.log(item)
                 if(item.card.card.itemCards)
                 {
-                    return <Accordion title={item.card.card.title} data={item.card.card.itemCards} />
+                    return (
+                    <>
+                        <Accordion title={item.card.card.title} data={item.card.card.itemCards} />
+                        <div className='h-[15px] w-[100%] bg-gray-200 mb-5'></div>
+                    </>
+                    )
                 }
                 else
                 {
-                    return <p>Nested UI</p>
+                    // console.log(item)
+                    return (
+                        <>
+                            <NestedUI title={item.card.card.title} data={item.card.card.categories} />
+                            <div className='h-[15px] w-[100%] bg-gray-200 mb-5'></div>
+                        </>
+                    )
                 }
             })
         }

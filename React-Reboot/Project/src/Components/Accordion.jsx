@@ -1,29 +1,32 @@
 import React, { useState } from 'react'
 import AccordionCard from './AccordionCard'
 
-const Accordion = ({title, data}) => {
+const Accordion = ({title, data, isNested, isLast}) => {
 
     const[showDropdown, setShowDropdown] = useState(true)
     let icon = document.getElementById("icon")
-    // console.log(showDropdown)
+    // console.log(isLast)
 
   return (
-    <div className='w-[100%] border-b border-b-black  '>
+    <div className={'w-[100%] mb-3 ' + (isNested ? (isLast ? "" : "border-b border-gray-200 pb-3") : "")}>
         <div className='flex justify-between'>
             <p className='text-lg'>{title}({data.length})</p>
-            <i id='icon' onClick={() => {
+            <i  onClick={() => {
                 setShowDropdown(!showDropdown)
-                icon.classList.contains("fa-angle-down") ? (icon.classList.remove("fa-angle-down")(icon.classList.add("fa-angle-up"))) : (icon.classList.remove("fa-angle-up")(icon.classList.add("fa-angle-down")))
-            }} class="fa-solid fa-angle-up"></i>
+                
+            }} class={"fa-solid " + (showDropdown ? "fa-angle-up" : "fa-angle-down")}></i>
         </div>
 
 
         {showDropdown && <div>
-            {data.map((item) => {
-                console.log(item)
-                return <AccordionCard info={item.card.info} />
+            {data.map((item, index) => {
+                // console.log(item)
+                return <AccordionCard info={item.card.info} isLast={index == data.length - 1} />
             })}
         </div>}
+
+
+        
     </div>
   )
 }
