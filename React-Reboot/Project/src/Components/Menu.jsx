@@ -12,10 +12,6 @@ const Menu = () => {
     const[resData, setResData] = useState({})
     const[carData, setCarData] = useState([])
 
-    // console.log(menuData)
-    // console.log(resData)
-    // console.log(carData)
-
     function scrollFn(dir)
     {
         const scrollAmt = 200
@@ -89,7 +85,6 @@ const Menu = () => {
 
         {
             menuData.map((item) => {
-                // console.log(item)
                 if(item.card.card.itemCards)
                 {
                     return (
@@ -101,7 +96,6 @@ const Menu = () => {
                 }
                 else
                 {
-                    // console.log(item)
                     return (
                         <>
                             <NestedUI title={item.card.card.title} data={item.card.card.categories} />
