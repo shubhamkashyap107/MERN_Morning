@@ -3,13 +3,20 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import { GlobalContext } from './Utils/GlobalContext.jsx'
+import Store from "./Utils/Store.js"
+import { Provider } from 'react-redux'
 
 createRoot(document.getElementById('root')).render(
-    <GlobalContext>
+    <Provider store={Store}>
 
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
+        <GlobalContext>
 
-    </GlobalContext>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+
+        </GlobalContext>
+
+    </Provider>
+
 )

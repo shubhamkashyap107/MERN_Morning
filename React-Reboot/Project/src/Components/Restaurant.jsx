@@ -65,7 +65,7 @@ const Restaurant = () => {
     }, [lat, long])
 
 
-    if(!sliderData)
+    if(sliderData.length == 0)
     {
         return (
             <>
