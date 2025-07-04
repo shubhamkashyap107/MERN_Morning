@@ -5,7 +5,7 @@ const Accordion = ({title, data, isNested, isLast}) => {
 
     const[showDropdown, setShowDropdown] = useState(true)
     let icon = document.getElementById("icon")
-    // console.log(isLast)
+    // console.log(data)
 
   return (
     <div className={'w-[100%] mb-3 ' + (isNested ? (isLast ? "" : "border-b border-gray-200 pb-3") : "")}>
