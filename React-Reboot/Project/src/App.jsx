@@ -10,6 +10,7 @@ import { lazy, Suspense } from "react"
 import Skeleton from "./Components/Skeleton"
 import Navbar from "./Components/Navbar"
 import toast, { Toaster } from 'react-hot-toast';
+import Cart from "./Components/Cart"
 
 const Restaurant = lazy(() => import("./Components/Restaurant"))
 const SliderItemData = lazy(() => import("./Components/SliderItemData"))
@@ -58,6 +59,7 @@ const App = () => {
           </Suspense>
           } path="/restaurants" />
         <Route element={<Menu />} path="/menu/:resId" />
+        <Route element={<Cart />} path="/cart" />
         <Route element={<SliderItemData />} path="/slider-data/:itemId/:text" />
         <Route path="*" element={<Error />} />
       </Routes>

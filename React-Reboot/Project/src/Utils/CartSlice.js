@@ -11,6 +11,7 @@ const cartSlice = createSlice({
     },
     reducers : {
         addItem : (state, action) => {
+            // console.log(action.payload)
             if(!state.id)
             {
                 state.id = action.payload.resId
@@ -50,7 +51,7 @@ const cartSlice = createSlice({
         },
 
         removeItem : (state, action) => {
-            console.log(action.payload.id)
+            // console.log(action.payload.id)
             if(!state.data.length)
             {
                 toast.error("Cart Empty")
