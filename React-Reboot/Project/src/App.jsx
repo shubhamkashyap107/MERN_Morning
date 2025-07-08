@@ -11,6 +11,7 @@ import Skeleton from "./Components/Skeleton"
 import Navbar from "./Components/Navbar"
 import toast, { Toaster } from 'react-hot-toast';
 import Cart from "./Components/Cart"
+import Help from "./Components/Help"
 
 const Restaurant = lazy(() => import("./Components/Restaurant"))
 const SliderItemData = lazy(() => import("./Components/SliderItemData"))
@@ -60,6 +61,7 @@ const App = () => {
           } path="/restaurants" />
         <Route element={<Menu />} path="/menu/:resId" />
         <Route element={<Cart />} path="/cart" />
+        <Route element={<Help />} path="/help" />
         <Route element={<SliderItemData />} path="/slider-data/:itemId/:text" />
         <Route path="*" element={<Error />} />
       </Routes>

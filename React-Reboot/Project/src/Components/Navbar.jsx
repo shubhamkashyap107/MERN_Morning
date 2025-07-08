@@ -45,7 +45,9 @@ const Navbar = () => {
             <button onClick={() => {
               nav("/search")
             }} className="hover:cursor-pointer"><i className="fa-solid fa-magnifying-glass"></i>&nbsp;Search</button>
-            <button className="hover:cursor-pointer"><i className="fa-solid fa-question"></i>&nbsp;Help</button>
+            <button onClick={() => {
+              nav("/help")
+            }} className="hover:cursor-pointer"><i className="fa-solid fa-question"></i>&nbsp;Help</button>
             <button className="hover:cursor-pointer"><i className="fa-solid fa-user"></i>&nbsp;Sign In</button>
             <button
             onClick={() => {
