@@ -1,13 +1,11 @@
 function qs(arr)
 {
-    // console.log("OK")
     if(arr.length <= 1)
     {
         return arr
     }
 
     let pivot = arr[arr.length - 1]
-
     let left = []
     let right = []
 
@@ -15,7 +13,7 @@ function qs(arr)
     {
         if(arr[i] <= pivot)
         {
-            left[left.length] = arr[i]
+            left[left.length] = arr[i] 
         }
         else
         {
