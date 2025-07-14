@@ -1,0 +1,22 @@
+{
+
+  "type": "commonjs",
+
+  "dependencies": {
+
+    "cat-me": "^1.0.3",
+
+    "chalk": "^5.4.1",
+
+    "cowsay": "^1.6.0",
+
+    "figlet": "^1.8.2",
+
+    "knock-knock-jokes": "^1.7.0",
+
+    "random-cat-img": "^1.1.8"
+
+  }
+
+}
+
