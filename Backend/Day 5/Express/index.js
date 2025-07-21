@@ -7,7 +7,7 @@ app.use(express.json())
 app.use(cors({
     origin : ["http://localhost:5173", "http://www.noisy.co.in"],
     // credentials : true
-    methods : ["GET", "POST"]
+    methods : ["GET", "POST", "DELETE", "PATCH"]
 }))
 
 let todos = [
@@ -34,6 +34,7 @@ app.get("/api/todos", (req, res) => {
     res.status(200).json(todos)
 })
 app.post("/api/todos", (req, res) => {
+    // console.log(res.body)
     const{title, desc} = req.body
     todos.push({title, desc, id : uuid(), isCompleted : false})
     res.status(200).json(todos)
