@@ -50,17 +50,26 @@ app.delete("/api/todos/:id", (req, res) => {
 
 app.patch("/api/todos/:id", (req, res) => {
     const{id} = req.params
-    const{title, desc, isCompleted} = req.body
+    const{title, desc, changeIsComp} = req.body
     for(let item of todos)
     {
         if(item.id == id)
         {
-            item.isCompleted = isCompleted
+            item.isCompleted = changeIsComp == true ? !item.isCompleted : item.isCompleted
             item.desc = desc
             item.title = title
         }
     }
+    console.log(todos)
     res.status(200).json(todos)
+})
+
+app.get("/api/todos/:id", (req, res) => {
+    const {id} = req.params
+    const foundTask = todos.find((item) => {
+        return item.id == id
+    })
+    res.status(200).json(foundTask)
 })
 
 

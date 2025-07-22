@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const TodoList = () => {
 
     const[tasks, setTasks] = useState([])
-    const[title, setTitle] = useState("")
-    const[desc, setDesc] = useState("")
+    const nav = useNavigate()
 
     useEffect(() => {
         async function getData()
@@ -30,54 +30,12 @@ const TodoList = () => {
     }
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+    <div className="min-h-screen bg-gray-100 p-6 flex justify-center items-center">
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto"> */}
         
-        {/* Left: Task Input Form */}
-        <div className="bg-white shadow-lg rounded-2xl p-6 space-y-4">
-          <h2 className="text-xl font-semibold text-gray-700">Add a Task</h2>
-          <input
-          value={title}
-          onChange={(e) => {
-            setTitle(e.target.value)
-          }}
-            type="text"
-            placeholder="Title"
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <textarea
-          value={desc}
-          onChange={(e) => {
-            setDesc(e.target.value)
-          }}
-            placeholder="Description"
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            rows="4"
-          ></textarea>
-          <button onClick={() => {
-            async function sendData() {
-                const res = await fetch("http://localhost:8080/api/todos",
-                {
-                method : "POST",
-                body : JSON.stringify({title : title, desc : desc}),
-                headers : {
-                    "Content-Type": "application/json",
-                }
-                })
-                const data = await res.json()
-                setTasks(data)
-                setTitle("")
-                setDesc("")
-            }
-            sendData()
-
-          }} className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">
-            Add Task
-          </button>
-        </div>
 
         {/* Right: Task List */}
-        <div className="bg-white shadow-lg rounded-2xl p-6 space-y-4">
+        <div className="bg-white shadow-lg rounded-2xl p-6 space-y-4 w-[40vw]">
           <h2 className="text-xl font-semibold text-gray-700">Tasks</h2>
           {/* Sample Task */}
           {tasks.length > 0 && tasks.map((item) => {
@@ -86,18 +44,41 @@ const TodoList = () => {
                     <div>
 
 
-                     <h3 className="font-bold">{item.title}</h3>
-                     <p className="text-gray-600">{item.desc}</p>
+                     <h3 className={"font-bold " + (item.isCompleted ? "line-through" : "")}>{item.title}</h3>
+                     <p className={"text-gray-600 " + (item.isCompleted ? "line-through" : "")}>{item.desc}</p>
                     
                     </div>
 
+                    <div className='flex gap-2'>
+                    <button onClick={() => {
+                      nav("/edit/" + item.id)
+                    }}>✏️</button>
                     <button onClick={() => deleteBtnHandler(item.id)}>🗑️</button>
+                    <input
+                    checked={item.isCompleted ? true : false}
+                     onChange={() => {
+                      async function editTask() {
+                          const res = await fetch("http://localhost:8080/api/todos/" + item.id, {
+                              method : "PATCH",
+                              body : JSON.stringify({title : item.title, desc : item.desc, changeIsComp : true}),
+                              headers : {
+                                  "content-type" : "application/json",
+                              }
+                          })
+                          const data = await res.json()
+                          setTasks(data)
+                          nav("/")
+
+                      }
+                      editTask()
+                    }} type="checkbox" />
+                    </div>
                 </div>
             )
           })}
           {/* More tasks can be added here */}
         </div>
-      </div>
+      {/* </div> */}
     </div>
   )
 }
