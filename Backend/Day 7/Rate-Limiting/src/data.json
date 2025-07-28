@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Mouse",
+    "category": "Electronics",
+    "price": 799,
+    "inStock": true,
+    "rating": 4.3
+  },
+  {
+    "id": 2,
+    "name": "Bluetooth Headphones",
+    "category": "Electronics",
+    "price": 1299,
+    "inStock": true,
+    "rating": 4.5
+  },
+  {
+    "id": 3,
+    "name": "Coffee Mug",
+    "category": "Kitchen",
+    "price": 299,
+    "inStock": false,
+    "rating": 4.1
+  },
+  {
+    "id": 4,
+    "name": "Gaming Keyboard",
+    "category": "Electronics",
+    "price": 2499,
+    "inStock": true,
+    "rating": 4.7
+  },
+  {
+    "id": 5,
+    "name": "Notebook",
+    "category": "Stationery",
+    "price": 99,
+    "inStock": true,
+    "rating": 4.0
+  },
+  {
+    "id": 6,
+    "name": "T-shirt",
+    "category": "Clothing",
+    "price": 499,
+    "inStock": false,
+    "rating": 3.9
+  }
+]
