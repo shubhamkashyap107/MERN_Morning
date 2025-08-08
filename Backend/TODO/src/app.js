@@ -2,6 +2,7 @@ const express = require("express")
 const app = express()
 const mongoose = require("mongoose")
 require("dotenv").config()
+const cors = require("cors")
 const{todoRouter} = require("./Routes/todoRoutes")
 
 
@@ -18,6 +19,6 @@ mongoose.connect(process.env.mongo_url)
     console.log("Failed")
 })
 
-
+app.use(cors())
 app.use(express.json())
 app.use("/api", todoRouter)

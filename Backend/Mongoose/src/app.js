@@ -83,8 +83,6 @@ app.delete("/api/user/:id", async(req, res) => {
     const data = await User.deleteOne({_id : id})
     console.log(data)
     res.status(200).json({msg : "OK"})
-    
-
 })
 
 
