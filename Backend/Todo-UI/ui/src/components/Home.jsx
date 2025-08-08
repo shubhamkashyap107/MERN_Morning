@@ -32,13 +32,36 @@ const Home = () => {
     }
 
 
+    function alterIsCompleted(id, isCompleted)
+    {
+        async function alterIC() {
+            await fetch("http://localhost:8080/api/todos/" + id, {
+                method : "PATCH",
+                body : JSON.stringify({isCompleted}),
+                headers :{
+                    "content-type" : "application/json"
+                }
+            })
+            const newTodos = todos.map((item) => {
+                if(item._id == id)
+                {
+                    item.isCompleted = !item.isCompleted
+                }
+                return item
+            })
+            // console.log(newTodos)
+            setTodos(newTodos)
+        }
+        alterIC()
+    }
+
 
 
     return (
         <div className='w-[70vw] mx-auto flex flex-col gap-5 mt-5'>
 
         {todos.length > 0 && todos.map((item) => {
-            return <Todo id={item._id} key={item._id} date={item.date} desc={item.desc} title={item.title} isCompleted={item.isCompleted} del={deleteTodo} />
+            return <Todo id={item._id} key={item._id} date={item.date} desc={item.desc} title={item.title} isCompleted={item.isCompleted} del={deleteTodo} alter={alterIsCompleted} />
             })}
         
         </div>

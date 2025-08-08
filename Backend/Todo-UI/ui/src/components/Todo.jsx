@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const Todo = ({ title, desc, date, isCompleted,  id , del}) => {
+const Todo = ({ title, desc, date, isCompleted,  id , del, alter}) => {
   const nav = useNavigate()
 
   return (
@@ -23,6 +23,9 @@ const Todo = ({ title, desc, date, isCompleted,  id , del}) => {
       <div className='flex gap-2 items-center'>
 
       <input 
+      onChange={() => {
+        alter(id, !isCompleted)
+      }}
         type="checkbox" 
         checked={isCompleted} 
         className="w-5 h-5 accent-green-500 cursor-pointer"
