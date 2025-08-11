@@ -4,6 +4,7 @@ const mongoose = require("mongoose")
 require("dotenv").config()
 const cors = require("cors")
 const{todoRouter} = require("./Routes/todoRoutes")
+const{router : userRouter} = require("./Routes/userRoutes")
 
 
 
@@ -22,3 +23,4 @@ mongoose.connect(process.env.mongo_url)
 app.use(cors())
 app.use(express.json())
 app.use("/api", todoRouter)
+app.use("/api", userRouter)

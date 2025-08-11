@@ -40,7 +40,15 @@ const userSchema = new mongoose.Schema({
         required : true,
         trim : true // "     sludhfksdjf     "
     },
+    username : {
+        type : String,
+        minLength : 6,
+        required : true,
+        trim : true,
+        unique : true
+    },
     email : {
+        unique : true,
         type : String,
         required : true,
         trim : true,
