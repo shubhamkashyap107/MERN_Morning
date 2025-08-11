@@ -4,9 +4,6 @@ const router = express.Router()
 const bcrypt = require("bcrypt")
 const validator = require("validator")
 
-
-
-
 router.post("/user/signup", async(req, res) => {
     try {
         
@@ -26,21 +23,19 @@ router.post("/user/signup", async(req, res) => {
     {
         throw new Error("User already exists")
     }
-
     const flag = validator.isStrongPassword(password)
     if(!flag)
     {
         throw new Error("Please enter a strong password")
     }
-
-    const hashedPassword = await bcrypt.hash(password, 10)
-
     const isDateValid = validator.isDate(dateOfBirth)
-
     if(!isDateValid)
     {
         throw new Error("Please Enter a valid date")
     }
+    const hashedPassword = await bcrypt.hash(password, 10)
+
+
     const createdUser = await User.create({
         firstName, lastName, username, email , number, gender, dateOfBirth, password : hashedPassword
     })
