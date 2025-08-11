@@ -10,7 +10,7 @@ const validator = require("validator")
 router.post("/user/signup", async(req, res) => {
     try {
         
-    const{firstName, lastName, username, email, number, gender, dateOfBirth, password} = req.body
+    var{firstName, lastName, username, email, number, gender, dateOfBirth, password} = req.body
     if(!firstName || !lastName || !username || !email || !number || !gender || !dateOfBirth || !password)
     {
         throw new Error("Please Enter all the required Fields")
@@ -35,11 +35,18 @@ router.post("/user/signup", async(req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10)
 
+    const isDateValid = validator.isDate(dateOfBirth)
+
+    if(!isDateValid)
+    {
+        throw new Error("Please Enter a valid date")
+    }
     const createdUser = await User.create({
         firstName, lastName, username, email , number, gender, dateOfBirth, password : hashedPassword
     })
 
-    res.status(201).json({msg : "User registered successfully", data : createdUser})
+    var{ firstName, lastName, username, email , number, gender, dateOfBirth} = createdUser
+    res.status(201).json({msg : "User registered successfully", data : {firstName, lastName, username, email , number, gender, dateOfBirth}})
    
     } catch (error) {
         res.status(400).json({error : error.message})
