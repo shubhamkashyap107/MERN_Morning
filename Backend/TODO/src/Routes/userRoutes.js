@@ -81,15 +81,9 @@ router.post("/user/login", async(req, res) => {
     }
 })
 
-
-
 router.post("/user/logout", async(req, res) => {
     res.status(200).cookie("token", null).json({msg : "User logged out"})
 })
-
-
-
-
 
 
 module.exports = {

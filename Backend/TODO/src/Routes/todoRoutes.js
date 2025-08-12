@@ -1,14 +1,14 @@
 const express = require("express")
 const { Todo } = require("../Models/todoSchema")
 const router = express.Router()
+const{isLoggedIn} = require("../Middlewares/isLoggedIn")
+const{isAuthor} = require("../Middlewares/isAuthor")
 
 
-
-
-
-router.post("/todos", async(req, res) => {
+router.post("/todos", isLoggedIn ,async(req, res) => {
 
     try {
+
         const{title, desc, isCompleted} = req.body
         const d = new Date()
         const day = d.getDate()
@@ -29,7 +29,7 @@ router.post("/todos", async(req, res) => {
         // })
 
         const createdTodo = await Todo.insertOne({
-            title, desc, isCompleted, date, updatedOn : date
+            title, desc, isCompleted, date, updatedOn : date, author : req.userId
         })
 
 
@@ -44,9 +44,9 @@ router.post("/todos", async(req, res) => {
 
 
 
-router.get("/todos", async(req, res) => {
+router.get("/todos", isLoggedIn ,async(req, res) => {
     try {
-        const allTodos = await Todo.find()
+        const allTodos = await Todo.find({author : req.userId})
         res.status(200).json({msg : "done", data : allTodos})
     } catch (error) {
         res.status(400).json({"err" : error.message})
@@ -54,7 +54,7 @@ router.get("/todos", async(req, res) => {
 })
 
 
-router.get("/todos/:id", async(req, res) => {
+router.get("/todos/:id", isLoggedIn , isAuthor ,async(req, res) => {
     try {
         const{id} = req.params
         const foundTodo = await Todo.findById(id).select("title desc isCompleted")
@@ -73,7 +73,7 @@ router.get("/todos/:id", async(req, res) => {
 
 
 
-router.delete("/todos/:id", async(req,res) => {
+router.delete("/todos/:id", isLoggedIn, isAuthor , async(req,res) => {
     try {
         const{id} = req.params
         const data = await Todo.findByIdAndDelete(id)
@@ -84,7 +84,7 @@ router.delete("/todos/:id", async(req,res) => {
 })
 
 
-router.patch("/todos/:id", async(req, res) => {
+router.patch("/todos/:id", isLoggedIn, isAuthor ,async(req, res) => {
     try {
         const{id} = req.params
         const{title, desc, isCompleted} = req.body

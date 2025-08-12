@@ -39,6 +39,10 @@ const todoSchema = new mongoose.Schema({
                 throw new Error("Please Enter a valid date")
             }
         }
+    },
+    author : {
+        type : mongoose.Schema.Types.ObjectId,
+        required : true
     }
 })
 
