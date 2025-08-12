@@ -3,6 +3,7 @@ const { User } = require("../Models/userSchema")
 const router = express.Router()
 const bcrypt = require("bcrypt")
 const validator = require("validator")
+const jwt = require("jsonwebtoken")
 
 router.post("/user/signup", async(req, res) => {
     try {
@@ -49,6 +50,42 @@ router.post("/user/signup", async(req, res) => {
 })
 
 
+router.post("/user/login", async(req, res) => {
+    try {
+        const{username, password} = req.body
+        if(!username || !password)
+        {
+            throw new Error("Please Enter all the fields")
+        }
+        const foundUser = await User.findOne({username : username})
+
+        if(!foundUser)
+        {
+            throw new Error("User does not exist")
+        }
+
+        const flag = bcrypt.compareSync(password, foundUser.password)
+        // const flag = await bcrypt.compare(password, foundUser.password)
+
+        if(!flag)
+        {
+            throw new Error("Invalid Credentials")
+        }
+
+        const token = jwt.sign({_id : foundUser._id}, process.env.jwt_secret)
+
+        res.status(200).cookie("token", token, {maxAge : 1000 * 60 * 24}).json({msg : "User logged in"})
+        
+    } catch (error) {
+        res.status(400).json({error : error.message})
+    }
+})
+
+
+
+router.post("/user/logout", async(req, res) => {
+    res.status(200).cookie("token", null).json({msg : "User logged out"})
+})
 
 
 
