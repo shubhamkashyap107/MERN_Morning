@@ -15,25 +15,14 @@ router.post("/todos", isLoggedIn ,async(req, res) => {
         const month = d.getMonth() + 1
         const year = d.getFullYear()
         const date = `${year}/${month > 9 ? month : '0' + month}/${day > 9 ? day : '0' + day}`
-        // const date = `${year}/${month}/${day}`
-        
-        
-        // const createdTodo = new Todo({
-        //     title, desc, isCompleted, date
-        // })
-        // await createdTodo.save()
-
-
-        // const createdTodo = await Todo.create({
-        //     title, desc, date, isCompleted
-        // })
 
         const createdTodo = await Todo.insertOne({
             title, desc, isCompleted, date, updatedOn : date, author : req.userId
         })
+        console.log(req.user)
+        req.user.todos.push(createdTodo._id)
+        await req.user.save()
 
-
-        // console.log(createdTodo)
         res.json("OK")
     } catch (error) {
         res.status(400).json({err : error.message})

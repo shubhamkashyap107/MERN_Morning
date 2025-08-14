@@ -57,7 +57,7 @@ router.post("/user/login", async(req, res) => {
         {
             throw new Error("Please Enter all the fields")
         }
-        const foundUser = await User.findOne({username : username})
+        const foundUser = await User.findOne({username : username}).populate("todos")
 
         if(!foundUser)
         {
@@ -74,7 +74,7 @@ router.post("/user/login", async(req, res) => {
 
         const token = jwt.sign({_id : foundUser._id}, process.env.jwt_secret)
 
-        res.status(200).cookie("token", token, {maxAge : 1000 * 60 * 24}).json({msg : "User logged in"})
+        res.status(200).cookie("token", token, {maxAge : 1000 * 60 * 24}).json({msg : "User logged in", data : foundUser})
         
     } catch (error) {
         res.status(400).json({error : error.message})

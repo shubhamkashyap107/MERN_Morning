@@ -12,6 +12,7 @@ async function isLoggedIn(req, res, next)
             throw new Error("Please Log in")
         }
         req.userId = decodedToken._id
+        req.user = foundUser
         next()
     } catch (error) {
         console.log(error)

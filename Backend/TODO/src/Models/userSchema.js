@@ -108,7 +108,7 @@ const userSchema = new mongoose.Schema({
     todos : [
         {
             type : mongoose.Schema.Types.ObjectId,
-            ref : "Todo"
+            ref : "Todo" // which model to use to populate data on the basis of id
         }
     ]
 })
