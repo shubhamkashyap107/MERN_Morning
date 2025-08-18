@@ -6,7 +6,7 @@ const cors = require("cors")
 const{todoRouter} = require("./Routes/todoRoutes")
 const{router : userRouter} = require("./Routes/userRoutes")
 const cp = require("cookie-parser")
-const cookieParser = require("cookie-parser")
+
 
 
 

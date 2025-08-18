@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios"
+import toast from 'react-hot-toast';
+import {useDispatch} from "react-redux"
+import { addUserData } from "../Utils/UserSlice";
+import {useNavigate} from "react-router-dom"
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("shubham");
+  const [password, setPassword] = useState("Qwerty123!");
+  const dispatch  = useDispatch()
+  const nav = useNavigate()
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
@@ -54,11 +60,21 @@ const Login = () => {
         <button
         onClick={() => {
             async function loginUser() {
+              try {
+                
                 const res = await axios.post(`${import.meta.env.VITE_DOMAIN}/user/login`, {
                     username, password
                 },{withCredentials : true}
             )
+            
+            dispatch(addUserData(res.data.data))
+              nav("/")
+
                 console.log(res)
+              } catch (error) {
+                console.log(error)
+                toast.error("Invalid Credentials")
+              }
             }
             loginUser()
         }}

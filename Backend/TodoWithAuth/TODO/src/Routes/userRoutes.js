@@ -4,6 +4,17 @@ const router = express.Router()
 const bcrypt = require("bcrypt")
 const validator = require("validator")
 const jwt = require("jsonwebtoken")
+const{isLoggedIn} = require("../Middlewares/isLoggedIn")
+
+router.get("/user/get-user-data", isLoggedIn ,(req, res) => {
+    try {
+        const user = req.user
+        res.status(200).json({data : user})
+    } catch (error) {
+        res.status(400).json({error : error.message})
+    }
+
+})
 
 router.post("/user/signup", async(req, res) => {
     try {
@@ -83,7 +94,7 @@ router.post("/user/login", async(req, res) => {
 
 router.post("/user/logout", async(req, res) => {
     res.status(200).cookie("token", null).json({msg : "User logged out"})
-})
+}) 
 
 
 module.exports = {
