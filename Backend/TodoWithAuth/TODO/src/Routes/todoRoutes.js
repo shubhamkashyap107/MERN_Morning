@@ -23,7 +23,7 @@ router.post("/todos", isLoggedIn ,async(req, res) => {
         req.user.todos.push(createdTodo._id)
         await req.user.save()
 
-        res.json("OK")
+        res.json({msg : "done", data : createdTodo})
     } catch (error) {
         res.status(400).json({err : error.message})
     }

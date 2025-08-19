@@ -12,10 +12,18 @@ const Navbar = () => {
       <div className="text-xl font-bold text-blue-600">Welcome, {data.firstName + " " + data.lastName}</div>
       {/* Navigation buttons */}
       <div className="flex gap-4">
-        <button className="px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 transition">
+        <button
+        onClick={() => {
+          nav("/")
+        }}
+         className="px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 transition">
           Home
         </button>
-        <button className="px-4 py-2 rounded-md bg-green-500 text-white hover:bg-green-600 transition">
+        <button
+        onClick={() => {
+          nav("/new")
+        }}
+        className="px-4 py-2 rounded-md bg-green-500 text-white hover:bg-green-600 transition">
           New
         </button>
         <button
